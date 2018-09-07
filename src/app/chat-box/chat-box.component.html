@@ -1,0 +1,61 @@
+<button (click)="logout()" >Logout</button>
+
+<div class="container clearfix">
+  <div class="chat">
+    <div class="chat-header clearfix">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+      <div class="chat-about">
+        <div class="chat-with">Chat with Vincent Porter</div>
+        <div class="chat-num-messages">already {{numOfMsgs | async}} messages</div>
+      </div>
+      <i class="fa fa-star"></i>
+    </div> 
+
+    <!-- ==================================================================== -->
+    <div class="chat-history">
+      <ul>
+        <!-- <li  *ngFor="let item of items | async">
+          <div class="message my-message ">
+            {{item.message}}
+          </div>
+        </li> -->
+
+
+        <li *ngFor="let item of items | async" >
+          <ng-container *ngIf="user?.email == item.userEmail" >
+            <div class="message-data">
+              <span class="message-data-name"><i class="fa fa-circle online"></i>{{item.userEmail}}</span>
+              <span class="message-data-time">{{item.msgTimeHour }}:{{item.msgTimeMin}} , {{item.msgDate | date}}</span>
+            </div>
+            <div class="message my-message">
+              {{item.message}}
+            </div>
+          </ng-container>
+
+          <!--  -->
+          <ng-container *ngIf="user?.email !== item.userEmail">
+            <div class="message-data align-right">
+              <span class="message-data-name"><i class="fa fa-circle online"></i>{{item.userEmail}}</span>
+              <span class="message-data-time">{{item.msgTimeHour }}:{{item.msgTimeMin}} , {{item.msgDate | date}}</span>
+            </div>
+            <div  class="message other-message float-right">
+              {{item.message}}
+            </div>
+          </ng-container>
+
+        </li>
+
+  
+
+        
+      </ul>
+    </div>
+    
+    <!-- ==========================================  -->
+    <div class="chat-message clearfix">
+      <textarea  name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3" #msgInput></textarea>
+      
+      <button (click)="sendMsg(msgInput)" >Send</button>
+    </div> 
+  </div>
+</div>
