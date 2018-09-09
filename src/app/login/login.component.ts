@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     console.log(this.f.email.value , this.f.password.value)
 
-    this.afAuth.auth.createUserWithEmailAndPassword(this.f.email.value , this.f.password.value).then((res => {
+    this.afAuth.auth.signInWithEmailAndPassword(this.f.email.value , this.f.password.value).then((res => {
       console.log('Successful Login ' , res)
       this.router.navigate(['/'])
     })).catch((err) => {

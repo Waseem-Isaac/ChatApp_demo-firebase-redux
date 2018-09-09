@@ -4,15 +4,20 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { ChatBoxModule } from '../chat-box/chat-box.module';
 import { ChatBoxComponent } from '../chat-box/chat-box.component';
+import { HeaderComponent } from '../core/header/header.component';
+import { CoreModule } from '../core/core.module';
+import { ChatSidebarComponent } from '../chat-box/chat-sidebar/chat-sidebar.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    CoreModule,
     HomeRoutingModule
   ],
   declarations: [
     HomeComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    ChatSidebarComponent
   ]
 })
 export class HomeModule { }

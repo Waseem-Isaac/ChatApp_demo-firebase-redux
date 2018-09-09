@@ -14,6 +14,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NgbModule, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBd8MPo66BtQiT5T9a65PUkJq7OSX6FoDc",

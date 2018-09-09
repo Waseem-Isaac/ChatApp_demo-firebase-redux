@@ -1,27 +1,33 @@
-<button (click)="logout()" >Logout</button>
 
 <div class="container clearfix">
-  <div class="chat">
+  <div class="row">
+
+      <div class="people-list col-sm-offset-1 col-sm-3" id="people-list">
+        <app-chat-sidebar></app-chat-sidebar>
+        <!-- <ul class="list">
+          <li class="clearfix listItem" style="">
+            <span>All Messages</span>
+            <span class="badge">{{numOfMsgs | async}}</span>
+          </li>
+        </ul> -->
+
+      </div>
+
+
+  <div class="chat col-sm-7" >
     <div class="chat-header clearfix">
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
       <div class="chat-about">
-        <div class="chat-with">Chat with Vincent Porter</div>
-        <div class="chat-num-messages">already {{numOfMsgs | async}} messages</div>
+        <div class="chat-with">{{user?.email}}</div>
+        <div class="chat-num-messages">already {{numOfAllMsgs | async}} messages</div>
       </div>
       <i class="fa fa-star"></i>
     </div> 
 
     <!-- ==================================================================== -->
-    <div class="chat-history">
+    <div class="chat-history" #chatHistory>
       <ul>
-        <!-- <li  *ngFor="let item of items | async">
-          <div class="message my-message ">
-            {{item.message}}
-          </div>
-        </li> -->
-
-
-        <li *ngFor="let item of items | async" >
+        <li *ngFor="let item of items" >
           <ng-container *ngIf="user?.email == item.userEmail" >
             <div class="message-data">
               <span class="message-data-name"><i class="fa fa-circle online"></i>{{item.userEmail}}</span>
@@ -58,4 +64,7 @@
       <button (click)="sendMsg(msgInput)" >Send</button>
     </div> 
   </div>
+
+
+</div>
 </div>

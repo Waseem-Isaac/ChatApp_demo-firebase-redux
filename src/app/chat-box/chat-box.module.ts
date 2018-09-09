@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { ChatBoxComponent } from './chat-box.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChatSidebarComponent } from './chat-sidebar/chat-sidebar.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ChatBoxComponent],
+  declarations: [ChatBoxComponent, ChatSidebarComponent],
+  exports : [ChatSidebarComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ChatBoxModule { }

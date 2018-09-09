@@ -1,0 +1,18 @@
+ul {
+    padding: 20px;
+    /* height: 770px; */
+    height: 85vh
+  }
+  ul li {
+    padding-bottom: 20px;
+    color: #fff;  padding: 10px 0; 
+    background: #6A6C75;
+    display: flex; justify-content: space-between; align-items: center;
+  
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+ ul li .badge{
+    background: #86BB71;
+    font-size: 14px;
+  }

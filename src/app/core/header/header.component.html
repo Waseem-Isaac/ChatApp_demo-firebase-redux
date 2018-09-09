@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top"  style="background: #337ab7; color: #fff; border:none; border-radius: 0"  >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+     
+      <li ngbDropdown>
+              <a  id="dropdownBasic1" ngbDropdownToggle href="javascript:void(0)"> 
+                  Notifictations <span class="badge" style="background: red">1</span>
+              </a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="color: #000; padding: 10px">
+                <div>No Notifications</div>
+              </div>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="user"><a href="javascript:void(0)"(click)="logout()" >Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+
