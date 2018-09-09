@@ -5,3 +5,12 @@
     background: none
 }
 
+.dropdown-menu {
+     min-width: 350px;
+     background: #F2F5F8;
+     color: #434651
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px
+}
+

@@ -11,6 +11,7 @@ export class ChatSidebarComponent implements OnInit {
 
   @select() numOfAllMsgs;
   @select() numOfMyMsgs;
+  @select() numOfOtherMsgs;
   constructor(private ngRedux: NgRedux<AppState>) { }
 
   ngOnInit() {

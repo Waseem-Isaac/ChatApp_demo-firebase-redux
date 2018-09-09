@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { AppState } from '../shared/store';
-import { ADD_MESSAGE,  ALL_MSGS, MY_MSGS } from '../shared/actions';
+import { ADD_MESSAGE,  ALL_MSGS, MY_MSGS, OTHER_MSGS } from '../shared/actions';
 import { Orbstream } from '../shared/orbstream/orbstream';
 //firebase
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -29,12 +29,17 @@ export class ChatBoxComponent implements OnInit {
     // this.items = af.list('/messages');
     af.list('/messages').subscribe((msgs: any)=>{
       this.items = msgs;
+      let myMsgs = msgs.filter((msg) => msg.userEmail === this.user.email)
+      let otherMsgs = msgs.filter((msg) => msg.userEmail !== this.user.email)
+
       // dispatch action when messages Changes (add msg)
       this.ngRedux.dispatch({ type: ALL_MSGS, numOfAllMsgs: this.items.length})
 
-      let myMsgs = msgs.filter((msg) => msg.userEmail === this.user.email)
+      // dispatch action when my messages Changes (add msg)
       this.ngRedux.dispatch({ type: MY_MSGS, numOfMyMsgs: myMsgs.length})
 
+       // dispatch action when my messages Changes (add msg)
+       this.ngRedux.dispatch({ type: OTHER_MSGS, numOfOtherMsgs: otherMsgs.length })
     },(err : any) => {
       console.log("Error When get Messages")
     })

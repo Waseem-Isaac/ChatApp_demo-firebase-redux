@@ -94,7 +94,7 @@ body {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 340px;
+  height: 380px;
 }
 .chat-history ul {
   list-style: none;
@@ -115,6 +115,7 @@ body {
   margin-bottom: 30px;
   width: 90%;
   position: relative;
+  word-wrap: break-word;
 }
 .chat .chat-history .message:after {
   bottom: 100%;
@@ -141,13 +142,15 @@ body {
 }
 .chat .chat-message {
   padding: 20px;
+
+  display: flex; align-items: flex-end;
 }
 .chat .chat-message textarea {
-  width: 100%;
+  width: 86%;
   border: none;
   padding: 10px 20px;
   font: 14px/22px "Lato", Arial, sans-serif;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border-radius: 5px;
   resize: none;
 }
@@ -157,7 +160,7 @@ body {
   cursor: pointer;
 }
 .chat .chat-message button {
-  float: right;
+  /* float: right; */
   color: #94C2ED;
   font-size: 16px;
   text-transform: uppercase;
@@ -165,6 +168,7 @@ body {
   cursor: pointer;
   font-weight: bold;
   background: #F2F5F8;
+  /* margin-top: 30px */
 }
 .chat .chat-message button:hover {
   color: #75b1e8;
