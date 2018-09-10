@@ -10,7 +10,7 @@
           </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="color: #000; padding: 10px">
             <div *ngFor="let msg of newOtherMsgs | async; let i = index">
-              <div class="dropdown-item" ><b>{{msg?.userEmail}}</b> Send a new message " {{msg?.message}}"</div>
+              <div class="dropdown-item" ><b>{{msg?.username}}</b> Send a new message " {{msg?.message}}"</div>
               <div class="divider" *ngIf="i < (newOtherMsgs | async)?.length-1"></div>
             </div >
           </div>
@@ -18,7 +18,7 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="user"><a href="javascript:void(0)"(click)="logout()" >Logout</a></li>
+      <li ><a href="javascript:void(0)"(click)="logout()" >Logout</a></li>
 
     </ul>
   </div>

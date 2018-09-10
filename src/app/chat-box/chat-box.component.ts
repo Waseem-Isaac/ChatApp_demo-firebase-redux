@@ -23,6 +23,7 @@ export class ChatBoxComponent implements OnInit {
   user : any;
   items: any;
   msgVal: string = '';
+  username: string 
 
   constructor(private ngRedux: NgRedux<AppState>, public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router) {
     // this.items = af.list('/messages');
@@ -52,7 +53,8 @@ export class ChatBoxComponent implements OnInit {
       (res)=>{
         if(res){
           console.log('Authenticated')
-          this.user = res
+          this.user = res;
+          this.username = this.user.email.split('@')[0];
 
         }else{
           console.log('not authenticatied LLLLOgin')
@@ -74,10 +76,11 @@ export class ChatBoxComponent implements OnInit {
     var username= this.user.email.split('@')[0]
     this.af.list('messages').push(
       {
-        message: msg.value, userEmail : username ,
+        message: msg.value, userEmail : this.user.email ,
         msgTimeHour :now.getHours() ,
         msgTimeMin:now.getMinutes() , 
-        msgDate: now.toDateString()
+        msgDate: now.toDateString() , 
+        username : username
       })
     msg.value = ''
     

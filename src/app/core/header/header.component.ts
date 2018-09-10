@@ -21,20 +21,20 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.afAuth.authState.subscribe(
-      (res)=>{
-        if(res){
-          console.log('Authenticated')
-          this.user = res
-        }else{
-          console.log('not authenticatied LLLLOgin')
-          alert('something went wrong')
-        }
-      },
-      (err) => {
-        console.log('err ' , err)
-        alert(err)
-      })
+    // this.afAuth.authState.subscribe(
+    //   (res)=>{
+    //     if(res){
+    //       console.log('Authenticated')
+    //       this.user = res
+    //     }else{
+    //       console.log('not authenticatied LLLLOgin')
+    //       alert('something went wrong')
+    //     }
+    //   },
+    //   (err) => {
+    //     console.log('err ' , err)
+    //     alert(err)
+    //   })
   }
   
   
