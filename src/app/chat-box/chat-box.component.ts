@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat-box.component.css'],
 })
 export class ChatBoxComponent implements OnInit {
-  @ViewChild('chatHistory') chatHistoryBox: ElementRef;
 
   messages: Array<any> = [];
   @select() numOfAllMsgs;
@@ -39,7 +38,7 @@ export class ChatBoxComponent implements OnInit {
       this.ngRedux.dispatch({ type: MY_MSGS, numOfMyMsgs: myMsgs.length})
 
        // dispatch action when my messages Changes (add msg)
-       this.ngRedux.dispatch({ type: OTHER_MSGS, numOfOtherMsgs: otherMsgs.length })
+       this.ngRedux.dispatch({ type: OTHER_MSGS, numOfOtherMsgs: otherMsgs.length , otherMsgs: otherMsgs })
     },(err : any) => {
       console.log("Error When get Messages")
     })

@@ -4,14 +4,16 @@ export interface AppState {
     // messages : Array<any>;
     numOfAllMsgs: number;
     numOfMyMsgs : number;
-    numOfOtherMsgs : number
+    numOfOtherMsgs : number,
+    newOtherMsgs : Array<any>
 }
 
 export const INIT_STATE : AppState = {
     // messages : [],
     numOfAllMsgs: 0,
     numOfMyMsgs: 0,
-    numOfOtherMsgs: 0
+    numOfOtherMsgs: 0,
+    newOtherMsgs : []
 }
 
 export function rootReducer(state: AppState , action): AppState {
@@ -26,8 +28,10 @@ export function rootReducer(state: AppState , action): AppState {
                     numOfMyMsgs : action.numOfMyMsgs
                 });
         case OTHER_MSGS : 
+                console.log(action.otherMsgs)
                 return tassign(state , {
-                    numOfOtherMsgs : action.numOfOtherMsgs
+                    numOfOtherMsgs : action.numOfOtherMsgs,
+                    newOtherMsgs : action.otherMsgs
                 });
     }
 

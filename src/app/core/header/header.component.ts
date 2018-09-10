@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux } from 'ng2-redux';
+import { NgRedux, select } from 'ng2-redux';
 import { AppState } from '../../shared/store';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   user: any;
-  isNavbarCollapsed=true;
+  @select() numOfOtherMsgs;
+  @select() newOtherMsgs;
   constructor(
     private ngRedux: NgRedux<AppState>,
     public afAuth: AngularFireAuth, 
@@ -35,8 +36,6 @@ export class HeaderComponent implements OnInit {
         alert(err)
       })
   }
-  
-
   
   
   logout() {
