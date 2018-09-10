@@ -71,9 +71,10 @@ export class ChatBoxComponent implements OnInit {
     if (!msg.value) return;
 
     var now = new Date()
+    var username= this.user.email.split('@')[0]
     this.af.list('messages').push(
       {
-        message: msg.value, userEmail : this.user.email ,
+        message: msg.value, userEmail : username ,
         msgTimeHour :now.getHours() ,
         msgTimeMin:now.getMinutes() , 
         msgDate: now.toDateString()

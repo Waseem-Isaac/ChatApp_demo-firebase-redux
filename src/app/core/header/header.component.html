@@ -5,12 +5,12 @@
     </div>
     <ul class="nav navbar-nav">     
       <li ngbDropdown>
-          <a  id="dropdownBasic1" ngbDropdownToggle href="javascript:void(0)" (click)="dropDownOpened()"> 
+          <a  id="dropdownBasic1" ngbDropdownToggle href="javascript:void(0)" > 
               Notifictations <span class="badge" style="background: red" *ngIf="(numOfOtherMsgs | async) > 0">{{numOfOtherMsgs | async}}</span>
           </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="color: #000; padding: 10px">
             <div *ngFor="let msg of newOtherMsgs | async; let i = index">
-              <div class="dropdown-item" >{{msg?.userEmail}} Send a new message " {{msg?.message}}"</div>
+              <div class="dropdown-item" ><b>{{msg?.userEmail}}</b> Send a new message " {{msg?.message}}"</div>
               <div class="divider" *ngIf="i < (newOtherMsgs | async)?.length-1"></div>
             </div >
           </div>
