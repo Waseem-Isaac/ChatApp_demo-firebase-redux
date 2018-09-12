@@ -22,7 +22,7 @@
       <ul>
         <li *ngFor="let item of items" >
           <ng-container *ngIf="user?.email == item.userEmail" >
-            <div class="message-data">
+            <div class="message-data clearfix">
               <span class="message-data-name"><i class="fa fa-circle online"></i>{{item.username}}</span>
               <span class="message-data-time">{{item.msgTimeHour }}:{{item.msgTimeMin}} , {{item.msgDate | date}}</span>
             </div>
@@ -33,7 +33,7 @@
 
           <!--  -->
           <ng-container *ngIf="user?.email !== item.userEmail">
-            <div class="message-data align-right">
+            <div class="message-data align-right clearfix">
               <span class="message-data-name"><i class="fa fa-circle online"></i>{{item.username}}</span>
               <span class="message-data-time">{{item.msgTimeHour }}:{{item.msgTimeMin}} , {{item.msgDate | date}}</span>
             </div>

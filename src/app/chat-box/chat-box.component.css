@@ -203,6 +203,9 @@ body {
   float: right;
 }
 
+.clearfix {
+  clear: both
+}
 .clearfix:after {
   visibility: hidden;
   display: block;
